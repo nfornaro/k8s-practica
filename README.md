@@ -1,7 +1,7 @@
 # Práctica de Kubernetes
 
 Material de la clase práctica de Kubernetes de Arquitectura de Software en la Práctica.
-Los pasos, comandos y preguntas están en la guía de trabajo que entrega el equipo docente.
+Los pasos, comandos y preguntas están en la [guía de trabajo](GUIDE.md) que entrega el equipo docente.
 
 ## Servicio de ejemplo
 
