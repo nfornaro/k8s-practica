@@ -10,10 +10,9 @@ El servicio de ejemplo es `pedidos`, el mismo que aparece en las slides de arqui
 
 ## Cómo trabajar
 
-- **En parejas.** Una persona ejecuta y la otra predice e interpreta. Roten en cada paso.
+- **En equipos.** Una persona ejecuta y las otras predicen e interpretan. Roten en cada paso.
 - **Predecir antes de ejecutar.** Donde la guía dice "Predecir", escriban la respuesta antes de correr el comando. Equivocarse es parte de la práctica.
-- **Respuestas cortas.** Alcanza con dos o tres oraciones por pregunta. Se entregan en un documento con las capturas que se piden.
-- **Si algo falla.** Miren primero `kubectl describe pod <nombre>` y `kubectl logs <nombre>`. Si no se resuelve, dejen evidencia del error, respondan las preguntas igual y sigan con el próximo paso.
+- **Si algo falla.** Miren primero `kubectl describe pod <nombre>` y `kubectl logs <nombre>`. Si no se resuelve, pregunten. Si aún así no se resuelve, dejen evidencia del error, respondan las preguntas igual y sigan con el próximo paso.
 - **Dos terminales.** La terminal A queda observando el cluster y la terminal B ejecuta comandos. Desde el paso 6 suman una terminal C para generar tráfico.
 - **Windows.** Usen PowerShell o Git Bash. Algunos comandos no funcionan en `cmd`.
 
@@ -80,7 +79,7 @@ kubectl get pods -n kube-system
 
 Busquen en la salida los componentes del control plane y de los nodos que vieron en el teórico.
 
-**Pregunta 1.** ¿Qué Pod corresponde a cada componente del control plane? Uno de los componentes del teórico no aparece: ¿cuál es y por qué no hace falta acá?
+**Pregunta 1.** ¿Qué Pod corresponde a cada componente del control plane? 
 
 **Pregunta 2.** En minikube, el control plane y las aplicaciones comparten un solo nodo. ¿Qué riesgo tendría esto en producción? ¿Qué parte de este problema resuelve contratar EKS, AKS o GKE?
 
@@ -97,8 +96,6 @@ kubectl describe pod pedidos-pod
 kubectl logs pedidos-pod
 kubectl exec pedidos-pod -- curl -s localhost:8080/hello
 ```
-
-Incluyan una captura de la respuesta de `/hello` en la entrega.
 
 **Pregunta 4.** Miren la sección `Events` de `describe`. ¿Qué componente de la arquitectura generó cada evento? Con esto, describan el recorrido desde `kubectl apply` hasta el contenedor corriendo.
 
@@ -128,7 +125,7 @@ kubectl get deployment,replicaset,pods
 
 **Pregunta 7.** Comparen los nombres de los tres tipos de objeto. ¿Quién crea a quién? ¿Qué responsabilidad tiene cada nivel?
 
-Ahora provoquen dos fallas distintas, mirando la terminal A en cada una:
+Ahora provoquen dos fallas distintas, mirando la terminal A en cada una (recuerden reemplazar <pod> por el nombre de alguno de los pods que ven en la otra terminal):
 
 ```bash
 kubectl delete pod <pod>
@@ -165,7 +162,7 @@ Cuando `cliente` esté `Running`, llamen al servicio por su nombre varias veces:
 kubectl exec cliente -- sh -c 'for i in 1 2 3 4 5 6 7 8 9 10; do curl -s http://pedidos/hello; done'
 ```
 
-**Pregunta 10.** ¿Quién responde en cada llamada? ¿Cuál de las preguntas de la slide "Hay que preguntarse" resuelve esto? ¿Qué pasaría si `cliente` tuviera configurada la IP de un Pod?
+**Pregunta 10.** ¿Quién responde en cada llamada?  ¿Qué pasaría si `cliente` tuviera configurada la IP de un Pod?
 
 Predecir: ¿qué va a pasar si le cambiamos la etiqueta `app` a uno de los Pods? Después compruébenlo y repitan la llamada anterior:
 
