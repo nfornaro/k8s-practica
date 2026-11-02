@@ -1,0 +1,14 @@
+GUIDE.md
+  h_669e563de5696a 50,57-59
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8001c0b0bc45d7f774857f51cb4025cc6e0bdace",
+  "prompts": {},
+  "humans": {
+    "h_669e563de5696a": {
+      "author": "Nicolás Fornaro <nfornaro@gmail.com>"
+    }
+  }
+}
