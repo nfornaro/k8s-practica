@@ -1,0 +1,38 @@
+.gitignore
+  h_669e563de5696a 1
+Dockerfile
+  h_669e563de5696a 1-17
+README.md
+  h_669e563de5696a 1-45
+app/app.py
+  h_669e563de5696a 1-137
+k8s/02-pod.yaml
+  h_669e563de5696a 1-12
+k8s/03-deployment.yaml
+  h_669e563de5696a 1-26
+k8s/04-cliente.yaml
+  h_669e563de5696a 1-16
+k8s/04-service.yaml
+  h_669e563de5696a 1-12
+k8s/05-config.yaml
+  h_669e563de5696a 1-16
+k8s/05-deployment.yaml
+  h_669e563de5696a 1-31
+k8s/06-deployment.yaml
+  h_669e563de5696a 1-53
+k8s/08-carga.yaml
+  h_669e563de5696a 1-25
+k8s/08-hpa.yaml
+  h_669e563de5696a 1-21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "922626094f47b69c87f48bd2dbb79081730e8e7b",
+  "prompts": {},
+  "humans": {
+    "h_669e563de5696a": {
+      "author": "Nicolás Fornaro <nfornaro@gmail.com>"
+    }
+  }
+}
