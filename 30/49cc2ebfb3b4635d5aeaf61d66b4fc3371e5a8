@@ -1,0 +1,14 @@
+README.md
+  h_669e563de5696a 4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3049cc2ebfb3b4635d5aeaf61d66b4fc3371e5a8",
+  "prompts": {},
+  "humans": {
+    "h_669e563de5696a": {
+      "author": "Nicolás Fornaro <nfornaro@gmail.com>"
+    }
+  }
+}
