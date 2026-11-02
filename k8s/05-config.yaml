@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pedidos-config
+data:
+  MENSAJE: "Bienvenidos a pedidos"
+  MONEDA: "UYU"
+---
+# Valor de ejemplo. Un secreto real nunca se versiona en Git.
+apiVersion: v1
+kind: Secret
+metadata:
+  name: pedidos-secret
+type: Opaque
+stringData:
+  API_KEY: "clave-de-ejemplo-123"

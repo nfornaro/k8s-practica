@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pedidos-pod
+  labels:
+    app: pedidos-suelto
+spec:
+  containers:
+    - name: pedidos
+      image: ghcr.io/nfornaro/pedidos:1.0.0
+      ports:
+        - containerPort: 8080

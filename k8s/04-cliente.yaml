@@ -1,0 +1,16 @@
+# Otro "microservicio" del cluster: lo usamos para llamar a pedidos desde adentro.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cliente
+  labels:
+    app: cliente
+spec:
+  containers:
+    - name: cliente
+      image: ghcr.io/nfornaro/pedidos:1.0.0
+      command: ["sleep", "infinity"]
+      resources:
+        requests:
+          cpu: 10m
+          memory: 8Mi

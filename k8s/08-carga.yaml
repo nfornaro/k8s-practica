@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: carga
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: carga
+  template:
+    metadata:
+      labels:
+        app: carga
+    spec:
+      containers:
+        - name: carga
+          image: ghcr.io/nfornaro/pedidos:1.0.0
+          command:
+            - sh
+            - -c
+            - "while true; do curl -s -m 5 -o /dev/null 'http://pedidos/cpu?ms=200'; done"
+          resources:
+            requests:
+              cpu: 10m
+              memory: 8Mi

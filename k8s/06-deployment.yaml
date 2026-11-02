@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pedidos
+spec:
+  replicas: 4
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: pedidos
+  template:
+    metadata:
+      labels:
+        app: pedidos
+    spec:
+      containers:
+        - name: pedidos
+          image: ghcr.io/nfornaro/pedidos:1.0.0
+          ports:
+            - containerPort: 8080
+          # optional: permite usar este archivo aunque se haya salteado el paso 5.
+          envFrom:
+            - configMapRef:
+                name: pedidos-config
+                optional: true
+            - secretRef:
+                name: pedidos-secret
+                optional: true
+          resources:
+            requests:
+              cpu: 100m
+              memory: 32Mi
+            limits:
+              cpu: 500m
+              memory: 64Mi
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: 8080
+            periodSeconds: 2
+            failureThreshold: 2
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            periodSeconds: 3
+            failureThreshold: 3
+      terminationGracePeriodSeconds: 10
