@@ -47,16 +47,16 @@ minikube addons enable metrics-server
 3. Clonar el repositorio de la práctica:
 
 ```bash
-git clone https://github.com/TU_USUARIO/k8s-practica.git
+git clone https://github.com/nfornaro/k8s-practica.git
 cd k8s-practica
 ```
 
 4. Descargar las imágenes dentro del cluster:
 
 ```bash
-minikube image pull ghcr.io/TU_USUARIO/pedidos:1.0.0
-minikube image pull ghcr.io/TU_USUARIO/pedidos:2.0.0
-minikube image pull ghcr.io/TU_USUARIO/pedidos:3.0.0
+minikube image pull ghcr.io/nfornaro/pedidos:1.0.0
+minikube image pull ghcr.io/nfornaro/pedidos:2.0.0
+minikube image pull ghcr.io/nfornaro/pedidos:3.0.0
 ```
 
 5. Comprobar que el nodo aparece en estado `Ready`:
